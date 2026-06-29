@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f4f7f5;
+  --foreground: #080b0b;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-onyx: #080b0b;
+  --color-graphite: #121716;
+  --color-pearl: #f4f7f5;
+  --color-white: #ffffff;
+  --color-steel: #596461;
+  --color-champagne: #c8a96a;
+  --color-cyan: #60e6ff;
+  --color-emerald: #0d6a5d;
+  --color-emerald-light: #65d6bd;
+  --font-sans: var(--font-manrope);
+  --font-arabic: var(--font-arabic);
+}
+
+* {
+  box-sizing: border-box;
+  letter-spacing: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: rgba(200, 169, 106, 0.35);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.surface-grid {
+  background-image:
+    linear-gradient(rgba(8, 11, 11, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(8, 11, 11, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark-grid {
+  background-image:
+    linear-gradient(rgba(244, 247, 245, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(244, 247, 245, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
