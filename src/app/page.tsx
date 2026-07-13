@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle2, Globe2 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { InterfaceVisual } from "@/components/interface-visual";
 import { SectionHeading } from "@/components/section-heading";
@@ -7,12 +8,16 @@ import {
   caseStudies,
   company,
   industries,
-  insights,
   processSteps,
   services,
 } from "@/content/site";
+import { getPublishedPosts } from "@/sanity/lib/posts";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  const latestInsights = await getPublishedPosts(3);
+
   return (
     <>
       <section className="surface-grid border-b border-black/10 bg-pearl">
@@ -210,12 +215,29 @@ export default function Home() {
             </Link>
           </div>
           <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {insights.map((post) => (
-              <Link key={post.slug} href={`/insights/${post.slug}`} className="rounded-lg border border-black/10 bg-white p-6 transition hover:-translate-y-1 hover:border-emerald/35">
-                <p className="text-xs font-semibold uppercase text-champagne">{post.category}</p>
-                <h3 className="mt-4 text-xl font-semibold leading-7 text-onyx">{post.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-steel">{post.excerpt}</p>
-                <p className="mt-6 text-xs font-semibold text-steel">{post.readTime}</p>
+            {latestInsights.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/insights/${post.slug}`}
+                className="overflow-hidden rounded-lg border border-black/10 bg-white transition hover:-translate-y-1 hover:border-emerald/35"
+              >
+                {post.mainImage?.asset?.url ? (
+                  <div className="relative aspect-[16/10] border-b border-black/10 bg-pearl">
+                    <Image
+                      src={post.mainImage.asset.url}
+                      alt={post.mainImage.alt ?? ""}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 33vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : null}
+                <div className="p-6">
+                  <p className="text-xs font-semibold uppercase text-champagne">{post.category}</p>
+                  <h3 className="mt-4 text-xl font-semibold leading-7 text-onyx">{post.title}</h3>
+                  <p className="mt-4 text-sm leading-7 text-steel">{post.excerpt}</p>
+                  <p className="mt-6 text-xs font-semibold text-steel">{post.readTime}</p>
+                </div>
               </Link>
             ))}
           </div>

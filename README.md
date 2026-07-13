@@ -45,4 +45,16 @@ Without `RESEND_API_KEY`, the contact form UI loads but the API returns a provid
 
 ## Content
 
-Launch content is currently code-backed in `src/content/site.ts` for speed and reliability. Sanity schemas are ready for services, industries, anonymous case studies, insights, and authors, including Arabic fields for the later translation pass.
+Insights are managed in Sanity Studio at `/studio`. If Sanity is not configured yet, the site keeps using the launch fallback posts from `src/content/site.ts`.
+
+### Adding an Insight
+
+1. Open `/studio` and sign in with a Sanity account that has access to the Oglas AI project.
+2. Go to **Insight** and create a new document.
+3. Add the title, generate the slug, choose the category, set the publish date, and add a short excerpt.
+4. Add a cover image with alt text. This image appears on the insight card, article page, and social preview.
+5. Write the article in **Body**. Use headings, lists, links, quotes, and image blocks with alt text/captions.
+6. Fill in the SEO tab when needed: meta title, meta description, keywords, and canonical URL.
+7. Keep **Visibility** set to **Published on website**, then publish the document.
+
+Published insights refresh on the homepage, `/insights`, article pages, and sitemap within about 60 seconds.

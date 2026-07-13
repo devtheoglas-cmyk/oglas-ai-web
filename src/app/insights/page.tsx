@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
-import { insights } from "@/content/site";
+import { getPublishedPosts } from "@/sanity/lib/posts";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Insights",
@@ -10,7 +13,9 @@ export const metadata: Metadata = {
     "Oglas AI insights on ERP, automation, AI adoption, computer vision, and business software strategy.",
 };
 
-export default function InsightsPage() {
+export default async function InsightsPage() {
+  const posts = await getPublishedPosts();
+
   return (
     <>
       <section className="surface-grid bg-pearl py-20">
@@ -25,20 +30,33 @@ export default function InsightsPage() {
 
       <section className="bg-white py-20">
         <div className="mx-auto grid w-full max-w-[1160px] px-4 gap-6 lg:grid-cols-3">
-          {insights.map((post) => (
+          {posts.map((post) => (
             <Link
               key={post.slug}
               href={`/insights/${post.slug}`}
-              className="group rounded-lg border border-black/10 bg-pearl p-7 transition hover:-translate-y-1 hover:border-emerald/35"
+              className="group overflow-hidden rounded-lg border border-black/10 bg-pearl transition hover:-translate-y-1 hover:border-emerald/35"
             >
-              <p className="text-xs font-semibold uppercase text-champagne">{post.category}</p>
-              <h2 className="mt-5 text-2xl font-semibold leading-tight text-onyx">
-                {post.title}
-              </h2>
-              <p className="mt-5 text-sm leading-7 text-steel">{post.excerpt}</p>
-              <div className="mt-7 flex items-center justify-between text-xs font-semibold text-steel">
-                <span>{post.readTime}</span>
-                <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1 group-hover:text-emerald" />
+              {post.mainImage?.asset?.url ? (
+                <div className="relative aspect-[16/10] border-b border-black/10 bg-white">
+                  <Image
+                    src={post.mainImage.asset.url}
+                    alt={post.mainImage.alt ?? ""}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : null}
+              <div className="p-7">
+                <p className="text-xs font-semibold uppercase text-champagne">{post.category}</p>
+                <h2 className="mt-5 text-2xl font-semibold leading-tight text-onyx">
+                  {post.title}
+                </h2>
+                <p className="mt-5 text-sm leading-7 text-steel">{post.excerpt}</p>
+                <div className="mt-7 flex items-center justify-between text-xs font-semibold text-steel">
+                  <span>{post.readTime}</span>
+                  <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1 group-hover:text-emerald" />
+                </div>
               </div>
             </Link>
           ))}

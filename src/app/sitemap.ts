@@ -1,9 +1,11 @@
 import type { MetadataRoute } from "next";
-import { insights, services } from "@/content/site";
+import { services } from "@/content/site";
+import { getPublishedPosts } from "@/sanity/lib/posts";
 
 const baseUrl = "https://oglas-ai.vercel.app";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getPublishedPosts();
   const staticRoutes = [
     "",
     "/services",
@@ -24,9 +26,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/services/${service.slug}`,
       lastModified: new Date(),
     })),
-    ...insights.map((post) => ({
+    ...posts.map((post) => ({
       url: `${baseUrl}/insights/${post.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date(post.date),
     })),
   ];
 }
