@@ -9,6 +9,29 @@ type ContactPayload = {
   message?: string;
 };
 
+function escapeHtml(value = "") {
+  return value.replace(/[&<>"']/g, (character) => {
+    const entities: Record<string, string> = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+
+    return entities[character];
+  });
+}
+
+function emailRow(label: string, value?: string) {
+  return `
+    <tr>
+      <td style="padding: 10px 0; color: #596461; font-size: 13px;">${label}</td>
+      <td style="padding: 10px 0; color: #080B0B; font-size: 14px; font-weight: 600;">${escapeHtml(value || "Not provided")}</td>
+    </tr>
+  `;
+}
+
 export async function POST(request: Request) {
   const payload = (await request.json()) as ContactPayload;
   const requiredFields: (keyof ContactPayload)[] = [
@@ -37,12 +60,13 @@ export async function POST(request: Request) {
   const resend = new Resend(resendApiKey);
   const to = process.env.CONTACT_TO_EMAIL || "md@oglasglobal.com";
   const from = process.env.CONTACT_FROM_EMAIL || "Oglas AI <onboarding@resend.dev>";
+  const subject = `New Oglas AI consultation: ${payload.projectType}`;
 
   await resend.emails.send({
     from,
     to,
     replyTo: payload.email,
-    subject: `New Oglas AI consultation: ${payload.projectType}`,
+    subject,
     text: [
       `Name: ${payload.name}`,
       `Company: ${payload.company}`,
@@ -52,6 +76,29 @@ export async function POST(request: Request) {
       "",
       payload.message,
     ].join("\n"),
+    html: `
+      <div style="background: #F4F7F5; padding: 32px; font-family: Arial, sans-serif;">
+        <div style="max-width: 640px; margin: 0 auto; background: #ffffff; border: 1px solid #e3e8e5; border-radius: 8px; overflow: hidden;">
+          <div style="background: #080B0B; padding: 24px 28px;">
+            <p style="margin: 0; color: #C8A96A; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;">Oglas AI</p>
+            <h1 style="margin: 10px 0 0; color: #ffffff; font-size: 24px; line-height: 1.25;">New consultation request</h1>
+          </div>
+          <div style="padding: 28px;">
+            <table style="width: 100%; border-collapse: collapse;">
+              ${emailRow("Name", payload.name)}
+              ${emailRow("Company", payload.company)}
+              ${emailRow("Email", payload.email)}
+              ${emailRow("Phone", payload.phone)}
+              ${emailRow("Project type", payload.projectType)}
+            </table>
+            <div style="margin-top: 24px; padding-top: 24px; border-top: 1px solid #e3e8e5;">
+              <p style="margin: 0 0 10px; color: #596461; font-size: 13px;">Message</p>
+              <p style="margin: 0; color: #080B0B; font-size: 15px; line-height: 1.7;">${escapeHtml(payload.message).replace(/\n/g, "<br />")}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `,
   });
 
   return Response.json({ ok: true });

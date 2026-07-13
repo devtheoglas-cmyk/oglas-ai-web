@@ -43,6 +43,14 @@ CONTACT_FROM_EMAIL=Oglas AI <hello@yourdomain.com>
 
 Without `RESEND_API_KEY`, the contact form UI loads but the API returns a provider configuration error.
 
+Create the Resend key in the Resend dashboard, then add it as an environment variable. Replace `re_xxxxxxxxx` with the real key from Resend:
+
+```bash
+RESEND_API_KEY=re_xxxxxxxxx
+```
+
+Do not paste the key directly into source code or commit it to GitHub.
+
 ## Content
 
 Insights are managed in Sanity Studio at `/studio`. If Sanity is not configured yet, the site keeps using the launch fallback posts from `src/content/site.ts`.
