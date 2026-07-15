@@ -2,7 +2,9 @@ import type { MetadataRoute } from "next";
 import { services } from "@/content/site";
 import { getPublishedPosts } from "@/sanity/lib/posts";
 
-const baseUrl = "https://oglas-ai.vercel.app";
+const baseUrl = "https://oglasai.com";
+
+export const revalidate = 60;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getPublishedPosts();
