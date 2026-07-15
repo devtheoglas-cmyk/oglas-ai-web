@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Case Studies",
   description:
     "Anonymous Oglas AI case studies for manpower companies and steel manufacturing operations.",
+  alternates: {
+    canonical: "/case-studies",
+  },
 };
 
 export default function CaseStudiesPage() {

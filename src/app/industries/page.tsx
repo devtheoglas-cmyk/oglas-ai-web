@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Industries",
   description:
     "Oglas AI builds custom software and AI systems for manpower, manufacturing, security, trading, healthcare, marketing, facility management, and retail companies.",
+  alternates: {
+    canonical: "/industries",
+  },
 };
 
 export default function IndustriesPage() {

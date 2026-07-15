@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { ArticleStructuredData } from "@/components/structured-data";
 import { PortableTextContent } from "@/components/portable-text-content";
 import { getPublishedPost, getPublishedPostSlugs } from "@/sanity/lib/posts";
 
@@ -28,7 +29,9 @@ export async function generateMetadata({ params }: InsightPageProps): Promise<Me
     title: post.metaTitle || post.title,
     description: post.metaDescription || post.excerpt,
     keywords: post.keywords,
-    alternates: post.canonicalUrl ? { canonical: post.canonicalUrl } : undefined,
+    alternates: {
+      canonical: post.canonicalUrl || `/insights/${post.slug}`,
+    },
     openGraph: {
       title: post.metaTitle || post.title,
       description: post.metaDescription || post.excerpt,
@@ -56,6 +59,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
 
   return (
     <article className="bg-white">
+      <ArticleStructuredData post={post} />
       <div className="mx-auto w-full max-w-[820px] px-4 py-20">
         <Link href="/insights" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald">
           <ArrowLeft className="h-4 w-4" />

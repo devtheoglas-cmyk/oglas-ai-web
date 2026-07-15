@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Book a free consultation with Oglas AI for custom software, ERP, automation, computer vision, and AI integrated solutions.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

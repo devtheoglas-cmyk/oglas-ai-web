@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Explore Oglas AI services for ERP, payroll automation, ESS portals, computer vision, workflow automation, marketing automation, and AI dashboards.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, Globe2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +15,12 @@ import {
 import { getPublishedPosts } from "@/sanity/lib/posts";
 
 export const revalidate = 60;
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function Home() {
   const latestInsights = await getPublishedPosts(3);

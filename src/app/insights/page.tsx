@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "Insights",
   description:
     "Oglas AI insights on ERP, automation, AI adoption, computer vision, and business software strategy.",
+  alternates: {
+    canonical: "/insights",
+  },
 };
 
 export default async function InsightsPage() {

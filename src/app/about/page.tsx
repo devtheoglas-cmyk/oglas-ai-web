@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Oglas AI is a Dubai-based custom software and AI solutions company serving UAE and global businesses.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {

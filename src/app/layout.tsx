@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic, Manrope } from "next/font/google";
+import { StructuredData } from "@/components/structured-data";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
@@ -18,7 +19,7 @@ const arabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oglas-ai.vercel.app"),
+  metadataBase: new URL("https://oglasai.com"),
   title: {
     default: "Oglas AI | Custom Software & AI Solutions in Dubai",
     template: "%s | Oglas AI",
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     title: "Oglas AI",
     description:
       "Custom software and AI integrated solutions for companies in the UAE and global markets.",
-    url: "https://oglas-ai.vercel.app",
+    url: "https://oglasai.com",
     siteName: "Oglas AI",
     locale: "en_US",
     type: "website",
@@ -37,6 +38,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -51,6 +59,7 @@ export default function RootLayout({
       className={`${manrope.variable} ${arabic.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <StructuredData />
         <SiteHeader />
         <main className="flex-1">{children}</main>
         <SiteFooter />
