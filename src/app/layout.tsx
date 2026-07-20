@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans_Arabic, Manrope } from "next/font/google";
+import Script from "next/script";
 import { StructuredData } from "@/components/structured-data";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import "./globals.css";
+
+const googleTagManagerId = "GTM-KS9QHLW9";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -58,7 +61,23 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${arabic.variable} h-full antialiased`}
     >
+      <Script id="google-tag-manager" strategy="beforeInteractive">
+        {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${googleTagManagerId}');`}
+      </Script>
       <body className="flex min-h-full flex-col">
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${googleTagManagerId}`}
+            height={0}
+            width={0}
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
         <StructuredData />
         <SiteHeader />
         <main className="flex-1">{children}</main>
