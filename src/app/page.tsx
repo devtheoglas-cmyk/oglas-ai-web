@@ -12,11 +12,18 @@ import {
   processSteps,
   services,
 } from "@/content/site";
+import { staticPageSeo } from "@/content/seo";
 import { getPublishedPosts } from "@/sanity/lib/posts";
 
 export const revalidate = 60;
 
+const seo = staticPageSeo["/"];
+
 export const metadata: Metadata = {
+  title: {
+    absolute: seo.title!,
+  },
+  description: seo.description,
   alternates: {
     canonical: "/",
   },

@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { caseStudies } from "@/content/site";
+import { staticPageSeo } from "@/content/seo";
+
+const seo = staticPageSeo["/case-studies"];
 
 export const metadata: Metadata = {
-  title: "Case Studies",
-  description:
-    "Anonymous Oglas AI case studies for manpower companies and steel manufacturing operations.",
+  title: {
+    absolute: seo.title!,
+  },
+  description: seo.description,
   alternates: {
     canonical: "/case-studies",
   },
@@ -21,6 +25,7 @@ export default function CaseStudiesPage() {
             eyebrow="Case studies"
             title="Proof of operational problems solved"
             summary="Explore the systems delivered, the bottlenecks removed, and the measurable outcomes achieved while client identities and sensitive details remain confidential."
+            headingLevel="h1"
           />
         </div>
       </section>

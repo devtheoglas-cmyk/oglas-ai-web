@@ -4,6 +4,7 @@ type SectionHeadingProps = {
   summary?: string;
   align?: "left" | "center";
   tone?: "light" | "dark";
+  headingLevel?: "h1" | "h2";
 };
 
 export function SectionHeading({
@@ -12,6 +13,7 @@ export function SectionHeading({
   summary,
   align = "left",
   tone = "light",
+  headingLevel = "h2",
 }: SectionHeadingProps) {
   const titleClass = tone === "dark" ? "text-white" : "text-onyx";
   const summaryClass = tone === "dark" ? "text-white/65" : "text-steel";
@@ -22,9 +24,15 @@ export function SectionHeading({
       {eyebrow ? (
         <p className={`mb-4 text-xs font-semibold uppercase ${eyebrowClass}`}>{eyebrow}</p>
       ) : null}
-      <h2 className={`text-3xl font-semibold leading-tight md:text-5xl ${titleClass}`}>
-        {title}
-      </h2>
+      {headingLevel === "h1" ? (
+        <h1 className={`text-3xl font-semibold leading-tight md:text-5xl ${titleClass}`}>
+          {title}
+        </h1>
+      ) : (
+        <h2 className={`text-3xl font-semibold leading-tight md:text-5xl ${titleClass}`}>
+          {title}
+        </h2>
+      )}
       {summary ? (
         <p className={`mt-5 text-base leading-8 md:text-lg ${summaryClass}`}>{summary}</p>
       ) : null}

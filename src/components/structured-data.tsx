@@ -95,16 +95,22 @@ export function StructuredData() {
 
 type ArticleStructuredDataProps = {
   post: PublishedPost;
+  title?: string;
+  description?: string;
 };
 
-export function ArticleStructuredData({ post }: ArticleStructuredDataProps) {
+export function ArticleStructuredData({
+  post,
+  title,
+  description,
+}: ArticleStructuredDataProps) {
   const url = `${baseUrl}/insights/${post.slug}`;
   const data = {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${url}#article`,
-    headline: post.metaTitle || post.title,
-    description: post.metaDescription || post.excerpt,
+    headline: title || post.metaTitle || post.title,
+    description: description || post.metaDescription || post.excerpt,
     datePublished: post.date,
     dateModified: post.date,
     mainEntityOfPage: url,

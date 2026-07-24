@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import { MapPin } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { company, processSteps } from "@/content/site";
+import { staticPageSeo } from "@/content/seo";
+
+const seo = staticPageSeo["/about"];
 
 export const metadata: Metadata = {
-  title: "About",
-  description:
-    "Oglas AI is a Dubai-based custom software and AI solutions company serving UAE and global businesses.",
+  title: {
+    absolute: seo.title!,
+  },
+  description: seo.description,
   alternates: {
     canonical: "/about",
   },
@@ -20,6 +24,7 @@ export default function AboutPage() {
           <SectionHeading
             eyebrow="About"
             title="A Dubai technology partner for custom business systems"
+            headingLevel="h1"
           />
           <p className="text-lg leading-8 text-steel">
             Oglas AI builds software and AI integrated solutions for companies that

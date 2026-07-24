@@ -2,11 +2,15 @@ import type { Metadata } from "next";
 import { CheckCircle2 } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
 import { industries } from "@/content/site";
+import { staticPageSeo } from "@/content/seo";
+
+const seo = staticPageSeo["/industries"];
 
 export const metadata: Metadata = {
-  title: "Industries",
-  description:
-    "Oglas AI builds custom software and AI systems for manpower, manufacturing, security, trading, healthcare, marketing, facility management, and retail companies.",
+  title: {
+    absolute: seo.title!,
+  },
+  description: seo.description,
   alternates: {
     canonical: "/industries",
   },
@@ -21,6 +25,7 @@ export default function IndustriesPage() {
             eyebrow="Industries"
             title="Designed for companies where operations, people, and data have to move together"
             summary="Your industry has its own rules, approvals, teams, and reporting needs. The right system removes manual friction, connects workflows, and gives leadership clearer visibility."
+            headingLevel="h1"
           />
         </div>
       </section>

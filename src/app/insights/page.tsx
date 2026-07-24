@@ -3,14 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
+import { staticPageSeo } from "@/content/seo";
 import { getPublishedPosts } from "@/sanity/lib/posts";
 
 export const revalidate = 60;
 
+const seo = staticPageSeo["/insights"];
+
 export const metadata: Metadata = {
-  title: "Insights",
-  description:
-    "Oglas AI insights on ERP, automation, AI adoption, computer vision, and business software strategy.",
+  title: {
+    absolute: seo.title!,
+  },
+  description: seo.description,
   alternates: {
     canonical: "/insights",
   },
@@ -27,6 +31,7 @@ export default async function InsightsPage() {
             eyebrow="Insights"
             title="Automation and AI thinking for operational leaders"
             summary="Practical articles to help you decide what to automate, where AI fits, and how to modernize operations without creating more complexity."
+            headingLevel="h1"
           />
         </div>
       </section>

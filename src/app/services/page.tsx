@@ -3,11 +3,15 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
 import { services } from "@/content/site";
+import { staticPageSeo } from "@/content/seo";
+
+const seo = staticPageSeo["/services"];
 
 export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Explore Oglas AI services for ERP, payroll automation, ESS portals, computer vision, workflow automation, marketing automation, and AI dashboards.",
+  title: {
+    absolute: seo.title!,
+  },
+  description: seo.description,
   alternates: {
     canonical: "/services",
   },
@@ -22,6 +26,7 @@ export default function ServicesPage() {
             eyebrow="Services"
             title="Custom software and AI services built for operational depth"
             summary="Start with one painful bottleneck or connect a full operating platform across HR, finance, operations, sales, marketing, and management."
+            headingLevel="h1"
           />
         </div>
       </section>

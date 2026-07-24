@@ -4,6 +4,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { SectionHeading } from "@/components/section-heading";
 import { services } from "@/content/site";
+import { serviceSeo } from "@/content/seo";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -21,9 +22,13 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
     return {};
   }
 
+  const seo = serviceSeo[service.slug];
+
   return {
-    title: service.title,
-    description: service.summary,
+    title: {
+      absolute: seo?.title || `${service.title} | Oglas AI`,
+    },
+    description: seo?.description || service.summary,
     alternates: {
       canonical: `/services/${service.slug}`,
     },

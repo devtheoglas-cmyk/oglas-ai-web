@@ -3,11 +3,15 @@ import { Mail, MapPin } from "lucide-react";
 import { ContactForm } from "@/components/contact-form";
 import { SectionHeading } from "@/components/section-heading";
 import { company } from "@/content/site";
+import { staticPageSeo } from "@/content/seo";
+
+const seo = staticPageSeo["/contact"];
 
 export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Book a free consultation with Oglas AI for custom software, ERP, automation, computer vision, and AI integrated solutions.",
+  title: {
+    absolute: seo.title!,
+  },
+  description: seo.description,
   alternates: {
     canonical: "/contact",
   },
@@ -22,6 +26,7 @@ export default function ContactPage() {
             eyebrow="Contact"
             title="Book a Free Consultation"
             summary="Share the project type and the workflow you want to improve. The Dubai team will review your request and suggest a practical next step."
+            headingLevel="h1"
           />
         </div>
       </section>

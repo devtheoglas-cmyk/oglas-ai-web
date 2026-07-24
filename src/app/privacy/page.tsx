@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
+import { staticPageSeo } from "@/content/seo";
+
+const seo = staticPageSeo["/privacy"];
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for Oglas AI website enquiries.",
+  description: seo.description,
   alternates: {
     canonical: "/privacy",
   },

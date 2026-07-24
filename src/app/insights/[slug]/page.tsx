@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { ArticleStructuredData } from "@/components/structured-data";
 import { PortableTextContent } from "@/components/portable-text-content";
+import { insightSeo } from "@/content/seo";
 import { getPublishedPost, getPublishedPostSlugs } from "@/sanity/lib/posts";
 
 type InsightPageProps = {
@@ -25,16 +26,22 @@ export async function generateMetadata({ params }: InsightPageProps): Promise<Me
     return {};
   }
 
+  const seo = insightSeo[post.slug];
+  const title = seo?.title || post.metaTitle || post.title;
+  const description = seo?.description || post.metaDescription || post.excerpt;
+
   return {
-    title: post.metaTitle || post.title,
-    description: post.metaDescription || post.excerpt,
+    title: {
+      absolute: title,
+    },
+    description,
     keywords: post.keywords,
     alternates: {
       canonical: post.canonicalUrl || `/insights/${post.slug}`,
     },
     openGraph: {
-      title: post.metaTitle || post.title,
-      description: post.metaDescription || post.excerpt,
+      title,
+      description,
       type: "article",
       publishedTime: post.date,
       images: post.mainImage?.asset?.url
@@ -57,9 +64,15 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
     notFound();
   }
 
+  const seo = insightSeo[post.slug];
+
   return (
     <article className="bg-white">
-      <ArticleStructuredData post={post} />
+      <ArticleStructuredData
+        post={post}
+        title={seo?.title}
+        description={seo?.description}
+      />
       <div className="mx-auto w-full max-w-[820px] px-4 py-20">
         <Link href="/insights" className="inline-flex items-center gap-2 text-sm font-semibold text-emerald">
           <ArrowLeft className="h-4 w-4" />
