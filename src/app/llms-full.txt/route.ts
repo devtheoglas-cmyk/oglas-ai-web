@@ -8,7 +8,7 @@ import {
 } from "@/content/site";
 import { getPublishedPosts } from "@/sanity/lib/posts";
 
-const baseUrl = "https://oglasai.com";
+const baseUrl = "https://www.oglasai.com";
 
 export const revalidate = 3600;
 

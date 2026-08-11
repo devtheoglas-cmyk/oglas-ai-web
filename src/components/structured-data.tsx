@@ -1,7 +1,7 @@
 import { company, industries, services } from "@/content/site";
 import type { PublishedPost } from "@/sanity/lib/posts";
 
-const baseUrl = "https://oglasai.com";
+const baseUrl = "https://www.oglasai.com";
 
 function jsonLd(data: unknown) {
   return JSON.stringify(data).replace(/</g, "\\u003c");
@@ -81,6 +81,34 @@ export function StructuredData() {
         },
       },
     ],
+  };
+
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: jsonLd(data),
+      }}
+    />
+  );
+}
+
+type FaqStructuredDataProps = {
+  faqs: { question: string; answer: string }[];
+};
+
+export function FaqStructuredData({ faqs }: FaqStructuredDataProps) {
+  const data = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 
   return (
