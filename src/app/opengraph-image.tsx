@@ -5,21 +5,27 @@ export const alt =
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-async function loadManrope(weight: 500 | 600) {
-  const cssResponse = await fetch(
-    `https://fonts.googleapis.com/css2?family=Manrope:wght@${weight}&display=swap`,
-    {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
+async function loadManrope(weight: 500 | 600): Promise<ArrayBuffer | null> {
+  try {
+    const cssResponse = await fetch(
+      `https://fonts.googleapis.com/css2?family=Manrope:wght@${weight}&display=swap`,
+      {
+        headers: {
+          "User-Agent":
+            "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)",
+        },
       },
-    },
-  );
-  const css = await cssResponse.text();
-  const match = css.match(/src:\s*url\(([^)]+)\)\s*format\('truetype'\)/);
-  if (!match) throw new Error("Could not resolve Manrope font URL");
-  const fontResponse = await fetch(match[1]);
-  return await fontResponse.arrayBuffer();
+    );
+    if (!cssResponse.ok) return null;
+    const css = await cssResponse.text();
+    const match = css.match(/src:\s*url\((https?:[^)]+)\)/);
+    if (!match) return null;
+    const fontResponse = await fetch(match[1]);
+    if (!fontResponse.ok) return null;
+    return await fontResponse.arrayBuffer();
+  } catch {
+    return null;
+  }
 }
 
 export default async function OpengraphImage() {
@@ -27,6 +33,28 @@ export default async function OpengraphImage() {
     loadManrope(500),
     loadManrope(600),
   ]);
+
+  const fonts = [
+    manropeMedium && {
+      name: "Manrope",
+      data: manropeMedium,
+      weight: 500 as const,
+      style: "normal" as const,
+    },
+    manropeSemibold && {
+      name: "Manrope",
+      data: manropeSemibold,
+      weight: 600 as const,
+      style: "normal" as const,
+    },
+  ].filter(Boolean) as {
+    name: string;
+    data: ArrayBuffer;
+    weight: 500 | 600;
+    style: "normal";
+  }[];
+
+  const fontFamily = fonts.length > 0 ? "Manrope" : "sans-serif";
 
   return new ImageResponse(
     (
@@ -41,7 +69,7 @@ export default async function OpengraphImage() {
           background:
             "linear-gradient(145deg, #080B0B 0%, #121716 55%, #1b1710 100%)",
           color: "#F4F7F5",
-          fontFamily: "Manrope",
+          fontFamily,
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
@@ -121,10 +149,7 @@ export default async function OpengraphImage() {
     ),
     {
       ...size,
-      fonts: [
-        { name: "Manrope", data: manropeMedium, weight: 500, style: "normal" },
-        { name: "Manrope", data: manropeSemibold, weight: 600, style: "normal" },
-      ],
+      ...(fonts.length > 0 ? { fonts } : {}),
     },
   );
 }
