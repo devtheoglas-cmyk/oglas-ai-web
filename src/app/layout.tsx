@@ -22,7 +22,7 @@ const arabic = IBM_Plex_Sans_Arabic({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://oglasai.com"),
+  metadataBase: new URL("https://www.oglasai.com"),
   title: {
     default: "Oglas AI | Custom Software & AI Solutions in Dubai",
     template: "%s | Oglas AI",
@@ -33,10 +33,16 @@ export const metadata: Metadata = {
     title: "Oglas AI",
     description:
       "Custom software and AI integrated solutions for companies in the UAE and global markets.",
-    url: "https://oglasai.com",
+    url: "https://www.oglasai.com",
     siteName: "Oglas AI",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Oglas AI — Custom Software & AI Solutions in Dubai",
+    description:
+      "Software built around real business operations. ERP, payroll, workflow automation, computer vision, and AI dashboards.",
   },
   robots: {
     index: true,

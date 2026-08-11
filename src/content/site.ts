@@ -6,13 +6,18 @@ import {
   Building2,
   Camera,
   CircuitBoard,
+  Compass,
   Factory,
   FileScan,
   HeartPulse,
+  Handshake,
+  LineChart,
   Megaphone,
   Network,
+  Rocket,
   ShieldCheck,
   Store,
+  Target,
   Truck,
   UsersRound,
   Workflow,
@@ -440,5 +445,198 @@ export const aiServiceIdeas = [
     icon: BarChart3,
     summary:
       "Generate management summaries from operational data without waiting for manual report packs.",
+  },
+];
+
+export type WhyChooseCard = {
+  title: string;
+  summary: string;
+  icon: LucideIcon;
+};
+
+export const whyChooseCards: WhyChooseCard[] = [
+  {
+    title: "Business-First Approach",
+    icon: Compass,
+    summary:
+      "We take the time to understand your business, goals, and workflows before recommending or building software. Every solution starts with your business, not the technology.",
+  },
+  {
+    title: "Tailored Solutions",
+    icon: Target,
+    summary:
+      "We design and develop custom software that fits the way your business operates, helping your teams work more efficiently without changing established processes.",
+  },
+  {
+    title: "Built for Growth",
+    icon: Rocket,
+    summary:
+      "We build scalable software solutions that evolve with your business, making it easier to add features, integrate systems, and support future growth.",
+  },
+  {
+    title: "Long-Term Partnership",
+    icon: Handshake,
+    summary:
+      "We provide ongoing support, maintenance, and continuous improvements to ensure your software continues delivering value as your business grows.",
+  },
+];
+
+export type HelpSlide = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  closer: string;
+  points: { title: string; summary: string; icon: LucideIcon }[];
+};
+
+export const helpSlides: HelpSlide[] = [
+  {
+    eyebrow: "01 · Simplify",
+    title: "Simplify Everyday Work",
+    description:
+      "From payroll to approvals and daily operations, we build software that removes unnecessary complexity and helps your team get more done with less effort.",
+    closer: "Streamlined operations. Happier teams. Better results.",
+    points: [
+      {
+        title: "ERP & Payroll Solutions",
+        icon: CircuitBoard,
+        summary:
+          "Manage HR, payroll, attendance, approvals, and core operations in one place.",
+      },
+      {
+        title: "Workflow Automation",
+        icon: Workflow,
+        summary:
+          "Automate approvals, tasks, and processes to save time and reduce manual work.",
+      },
+    ],
+  },
+  {
+    eyebrow: "02 · Support",
+    title: "Support Your Team",
+    description:
+      "Give your employees the tools they need to work more efficiently, collaborate better, and access the information they need when they need it.",
+    closer: "Empowered people. Stronger workplace culture.",
+    points: [
+      {
+        title: "Employee Self-Service & HR",
+        icon: UsersRound,
+        summary:
+          "Self-service portals for requests, documents, leave, and HR communication.",
+      },
+      {
+        title: "AI Assistants & Chatbots",
+        icon: Bot,
+        summary:
+          "Instant answers and support for employees and customers, anytime they need it.",
+      },
+    ],
+  },
+  {
+    eyebrow: "03 · Decide",
+    title: "Turn Data Into Decisions",
+    description:
+      "We help you make sense of your business data by transforming information into insights that guide smarter, faster decisions.",
+    closer: "Better insights. Stronger, faster decisions.",
+    points: [
+      {
+        title: "AI Dashboards & Insights",
+        icon: LineChart,
+        summary:
+          "Real-time dashboards and predictive insights to track performance and spot opportunities.",
+      },
+      {
+        title: "Intelligent Document Processing",
+        icon: FileScan,
+        summary:
+          "Extract, classify, and process documents accurately with AI-powered automation.",
+      },
+    ],
+  },
+  {
+    eyebrow: "04 · Prepare",
+    title: "Prepare for the Future",
+    description:
+      "Whether you're exploring AI, automation, or smarter business systems, we build technology that supports your goals today while preparing you for tomorrow.",
+    closer: "Future-ready solutions. Sustainable business growth.",
+    points: [
+      {
+        title: "Computer Vision Solutions",
+        icon: Camera,
+        summary:
+          "Use intelligent vision to improve safety, monitoring, compliance, and operations.",
+      },
+      {
+        title: "Marketing Automation",
+        icon: Megaphone,
+        summary:
+          "Automate campaigns, lead nurturing, and customer journeys to drive better engagement.",
+      },
+    ],
+  },
+];
+
+export type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  sector: string;
+};
+
+export const testimonials: Testimonial[] = [
+  {
+    quote:
+      "Oglas AI mapped our payroll workflow before writing a single line of code. Cycles that used to take two days now finish in seconds.",
+    name: "Head of Operations",
+    role: "Operations Director",
+    sector: "UAE Manpower Group",
+  },
+  {
+    quote:
+      "The dashboards finally gave leadership one view of workshop status, aging, and cashflow. We caught leakage we had missed for months.",
+    name: "Managing Director",
+    role: "Ownership",
+    sector: "Steel Manufacturing Company",
+  },
+  {
+    quote:
+      "Their ESS portal removed hundreds of repeat HR queries every week. The team could finally focus on strategy instead of follow-ups.",
+    name: "HR Lead",
+    role: "People Operations",
+    sector: "Staffing & Facilities Group",
+  },
+];
+
+export type FaqItem = { question: string; answer: string };
+
+export const homepageFaqs: FaqItem[] = [
+  {
+    question:
+      "What is custom software development, and how can it benefit my business?",
+    answer:
+      "Custom software development involves building software specifically for your business rather than adapting your processes to generic software. It helps streamline operations, automate repetitive tasks, improve productivity, integrate with existing systems, and scale as your business grows.",
+  },
+  {
+    question:
+      "Why should businesses choose custom software instead of off-the-shelf software?",
+    answer:
+      "Off-the-shelf software is designed for general use, while custom software is built around your unique workflows and business goals. Custom solutions offer greater flexibility, better integration, improved efficiency, and long-term scalability, making them a better investment for businesses with specific operational needs.",
+  },
+  {
+    question: "What AI solutions does Oglas AI provide?",
+    answer:
+      "Oglas AI develops practical AI solutions that solve real business challenges, including workflow automation, AI chatbots, intelligent document processing, computer vision, predictive dashboards, and decision intelligence. Every solution is tailored to your business requirements and existing processes.",
+  },
+  {
+    question:
+      "Can Oglas AI integrate with our existing ERP, CRM, or business systems?",
+    answer:
+      "Yes. Oglas AI builds software that integrates with existing ERP systems, CRM platforms, HR software, accounting tools, third-party APIs, and other business applications wherever technically feasible. This ensures smooth data flow without disrupting your existing operations.",
+  },
+  {
+    question:
+      "How do I choose the right custom software development company in Dubai?",
+    answer:
+      "When choosing a software development partner, look for a company that understands your business, has experience across industries, builds tailored solutions rather than one-size-fits-all products, provides long-term support, and focuses on measurable business outcomes. At Oglas AI, we begin every project by understanding your business before recommending the right technology solution.",
   },
 ];

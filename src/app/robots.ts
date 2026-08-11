@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://oglasai.com";
+const baseUrl = "https://www.oglasai.com";
 const publicCrawlerAccess = {
   allow: "/",
   disallow: "/studio",
@@ -32,6 +32,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
-    host: baseUrl,
+    host: "www.oglasai.com",
   };
 }
