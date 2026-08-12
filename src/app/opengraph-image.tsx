@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Oglas AI — Custom Software & AI Solutions in Dubai. Software built around real business operations.";
+  "Oglas AI — Custom Software Development & Practical AI. Software built around real business operations.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -113,7 +113,7 @@ export default async function OpengraphImage() {
               letterSpacing: 2,
             }}
           >
-            Custom Software &amp; AI Solutions
+            Custom Software Development &amp; Practical AI
           </div>
           <div
             style={{

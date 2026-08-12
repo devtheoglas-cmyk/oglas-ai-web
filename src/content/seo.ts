@@ -5,7 +5,7 @@ export type SeoEntry = {
 
 export const staticPageSeo: Record<string, SeoEntry> = {
   "/": {
-    title: "Custom Software Development & AI Solutions in Dubai | Oglas AI",
+    title: "Custom Software Development & Practical AI | Oglas AI",
     description:
       "Oglas AI is a Dubai-based custom software development and AI solutions company delivering ERP, workflow automation, computer vision, payroll systems, and business AI for growing businesses.",
   },
