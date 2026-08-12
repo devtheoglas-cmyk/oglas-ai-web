@@ -56,8 +56,8 @@ export default async function Home() {
               Software Built Around Real Business Operations
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-steel">
-              We build custom software, ERP systems, AI-powered solutions, workflow
-              automation, and business applications designed around your unique
+              Our custom software development covers ERP systems, AI-powered solutions,
+              workflow automation, and business applications designed around your unique
               business processes — helping you reduce manual work, improve operational
               efficiency, and scale with confidence.
             </p>
@@ -136,7 +136,12 @@ export default async function Home() {
                       </span>
                       <div>
                         <h4 className="text-sm font-semibold text-onyx">
-                          {point.title}
+                          <Link
+                            href={point.href}
+                            className="transition-colors hover:text-emerald"
+                          >
+                            {point.title}
+                          </Link>
                         </h4>
                         <p className="mt-1 text-sm leading-6 text-steel">
                           {point.summary}

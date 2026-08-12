@@ -486,7 +486,7 @@ export type HelpSlide = {
   title: string;
   description: string;
   closer: string;
-  points: { title: string; summary: string; icon: LucideIcon }[];
+  points: { title: string; summary: string; icon: LucideIcon; href: string }[];
 };
 
 export const helpSlides: HelpSlide[] = [
@@ -500,12 +500,14 @@ export const helpSlides: HelpSlide[] = [
       {
         title: "ERP & Payroll Solutions",
         icon: CircuitBoard,
+        href: "/services/erp-payroll-automation",
         summary:
           "Manage HR, payroll, attendance, approvals, and core operations in one place.",
       },
       {
         title: "Workflow Automation",
         icon: Workflow,
+        href: "/services/workflow-automation",
         summary:
           "Automate approvals, tasks, and processes to save time and reduce manual work.",
       },
@@ -521,12 +523,14 @@ export const helpSlides: HelpSlide[] = [
       {
         title: "Employee Self-Service & HR",
         icon: UsersRound,
+        href: "/services/ess-hr-portals",
         summary:
           "Self-service portals for requests, documents, leave, and HR communication.",
       },
       {
         title: "AI Assistants & Chatbots",
         icon: Bot,
+        href: "/services/ai-chatbots-knowledge-assistants",
         summary:
           "Instant answers and support for employees and customers, anytime they need it.",
       },
@@ -542,12 +546,14 @@ export const helpSlides: HelpSlide[] = [
       {
         title: "AI Dashboards & Insights",
         icon: LineChart,
+        href: "/services/ai-dashboards-decision-intelligence",
         summary:
           "Real-time dashboards and predictive insights to track performance and spot opportunities.",
       },
       {
         title: "Intelligent Document Processing",
         icon: FileScan,
+        href: "/services/ai-document-processing",
         summary:
           "Extract, classify, and process documents accurately with AI-powered automation.",
       },
@@ -563,12 +569,14 @@ export const helpSlides: HelpSlide[] = [
       {
         title: "Computer Vision Solutions",
         icon: Camera,
+        href: "/services/intelligent-computer-vision",
         summary:
           "Use intelligent vision to improve safety, monitoring, compliance, and operations.",
       },
       {
         title: "Marketing Automation",
         icon: Megaphone,
+        href: "/services/marketing-automation",
         summary:
           "Automate campaigns, lead nurturing, and customer journeys to drive better engagement.",
       },
