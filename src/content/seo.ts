@@ -30,12 +30,7 @@ export const staticPageSeo: Record<string, SeoEntry> = {
       "Explore insights from Oglas AI on custom software development, AI adoption, ERP, workflow automation, computer vision, and digital transformation for modern businesses.",
   },
   "/about": {
-    title: "About Oglas AI | Custom Software & AI Company",
-    description:
-      "Learn about Oglas AI, a Dubai-based custom software and AI solutions company helping businesses streamline operations through automation, intelligent software, and practical AI.",
-  },
-  "/company": {
-    title: "Custom Software & Practical AI Company | Oglas AI",
+    title: "About Oglas AI | Custom Software & Practical AI Company",
     description:
       "Oglas AI is a UAE-based custom software and practical AI company building ERP, automation, computer vision, and AI systems designed around how your business actually works.",
   },

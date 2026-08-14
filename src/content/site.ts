@@ -35,7 +35,6 @@ export const company = {
 export const navigation = [
   { href: "/services", label: "Services" },
   { href: "/industries", label: "Industries" },
-  { href: "/company", label: "Company" },
   { href: "/case-studies", label: "Case Studies" },
   { href: "/insights", label: "Insights" },
   { href: "/about", label: "About" },

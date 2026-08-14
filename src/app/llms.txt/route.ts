@@ -21,10 +21,9 @@ Primary markets: United Arab Emirates, with global availability and expansion fo
 - [Home](${baseUrl}/): Oglas AI overview, positioning, services, industries, case studies, and latest insights.
 - [Services](${baseUrl}/services): Core custom software and AI service categories.
 - [Industries](${baseUrl}/industries): Industries served by Oglas AI.
-- [Company](${baseUrl}/company): Who Oglas AI is, what we do, our approach, how we work, industries, outcomes, team, and FAQs.
 - [Anonymous Case Studies](${baseUrl}/case-studies): Confidential outcome stories and measurable business improvements.
 - [Insights](${baseUrl}/insights): Articles about automation, ERP, AI adoption, computer vision, and business software strategy.
-- [About](${baseUrl}/about): Company background, approach, and UAE/global positioning.
+- [About](${baseUrl}/about): Who Oglas AI is, what we do, our approach, how we work, where we're based, industries, outcomes, team, and FAQs.
 - [Contact](${baseUrl}/contact): Consultation request form and contact details.
 
 ## Services

@@ -20,6 +20,11 @@ const nextConfig: NextConfig = {
     "@sanity/vision",
     "styled-components",
   ],
+  async redirects() {
+    return [
+      { source: "/company", destination: "/about", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
