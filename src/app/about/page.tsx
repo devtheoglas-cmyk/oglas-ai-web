@@ -272,29 +272,6 @@ const whyOglas: IconItem[] = [
   },
 ];
 
-const team = [
-  {
-    name: "Jithin Jose",
-    role: "Founder / CEO",
-    bio: "10+ years in building custom software and automation solutions for businesses in the UAE and India. Leads strategy, client partnerships, and product direction.",
-  },
-  {
-    name: "Alen Shaji",
-    role: "Co-Founder / CTO",
-    bio: "9+ years of experience in enterprise software architecture, ERP systems, and workflow automation. Leads engineering, solutions architecture, and technology strategy.",
-  },
-  {
-    name: "Albin Babu",
-    role: "Head of Delivery",
-    bio: "8+ years in project delivery and operations across multiple industries. Ensures projects are delivered on time, with quality, and aligned to business goals.",
-  },
-  {
-    name: "Sreerag Sreenivasan",
-    role: "Lead – AI & Automation",
-    bio: "7+ years of experience in AI, computer vision, and process automation. Leads product development for intelligent automation and AI integrated solutions.",
-  },
-];
-
 const faqs = [
   {
     question: "What is Oglas AI?",
@@ -379,19 +356,6 @@ const aboutPageSchema = {
   },
 };
 
-const teamSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": `${baseUrl}/#organization`,
-  employee: team.map((member) => ({
-    "@type": "Person",
-    name: member.name,
-    jobTitle: member.role,
-    description: member.bio,
-    worksFor: { "@id": `${baseUrl}/#organization` },
-  })),
-};
-
 /* ---------- small building blocks ---------- */
 
 function Eyebrow({ num, children }: { num: string; children: string }) {
@@ -413,16 +377,6 @@ function IconBadge({ icon: Icon }: { icon: LucideIcon }) {
   );
 }
 
-function initials(name: string) {
-  return name
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((part) => part[0])
-    .join("")
-    .toUpperCase();
-}
-
 /* ---------- page ---------- */
 
 export default function AboutPage() {
@@ -432,10 +386,6 @@ export default function AboutPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(aboutPageSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(teamSchema) }}
       />
 
       {/* SECTION 1 — Hero */}
@@ -885,79 +835,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 10 — The People Behind Oglas AI */}
-      <section className="bg-white py-20">
-        <div className="mx-auto w-full max-w-[1160px] px-4">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
-            <div>
-              <Eyebrow num="10">THE PEOPLE BEHIND OGLAS AI</Eyebrow>
-              <h2 className="mt-6 text-3xl font-semibold leading-tight text-onyx md:text-5xl">
-                Built by People Who Understand Business and Technology
-              </h2>
-              <p className="mt-7 max-w-xl text-base leading-8 text-steel">
-                We are a team of builders, problem-solvers, and domain thinkers.
-                We combine business understanding with deep technical expertise
-                to build software that creates real impact.
-              </p>
-            </div>
-            <Image
-              src="/images/about/team.jpg"
-              alt="The Oglas AI team collaborating in their Dubai office"
-              width={788}
-              height={404}
-              className="h-auto w-full rounded-2xl border border-black/10 object-cover"
-            />
-          </div>
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="flex flex-col gap-4 rounded-lg border border-black/10 bg-pearl p-6"
-              >
-                <div className="flex items-start justify-between">
-                  <span
-                    aria-hidden="true"
-                    className="grid h-20 w-20 place-items-center rounded-full border border-champagne/40 bg-white text-2xl font-semibold text-champagne"
-                  >
-                    {initials(member.name)}
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="grid h-7 w-7 place-items-center rounded-md border border-champagne/40 text-xs font-bold text-champagne"
-                  >
-                    in
-                  </span>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-onyx">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm font-semibold text-champagne">
-                    {member.role}
-                  </p>
-                </div>
-                <p className="text-sm leading-7 text-steel">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-10 flex flex-col items-start gap-3 rounded-lg bg-pearl px-6 py-5 sm:flex-row sm:items-center">
-            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-champagne/15 text-champagne">
-              <UsersRound className="h-5 w-5" />
-            </span>
-            <p className="text-base font-semibold text-onyx">
-              Different backgrounds. Shared mindset. One goal:{" "}
-              <span className="text-champagne">
-                building practical software that drives real business outcomes.
-              </span>
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* SECTION 11 — FAQ */}
+      {/* SECTION 10 — FAQ */}
       <section className="bg-pearl py-20">
         <div className="mx-auto w-full max-w-[1160px] px-4">
-          <Eyebrow num="11">FREQUENTLY ASKED QUESTIONS</Eyebrow>
+          <Eyebrow num="10">FREQUENTLY ASKED QUESTIONS</Eyebrow>
           <h2 className="mt-6 max-w-3xl text-3xl font-semibold leading-tight text-onyx md:text-5xl">
             Questions Businesses Ask About Oglas AI
           </h2>
@@ -989,11 +870,11 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* SECTION 12 — Final CTA */}
+      {/* SECTION 11 — Final CTA */}
       <section className="bg-white py-20">
         <div className="mx-auto grid w-full max-w-[1160px] items-center gap-12 px-4 lg:grid-cols-[1fr_1fr]">
           <div>
-            <Eyebrow num="12">FINAL CTA</Eyebrow>
+            <Eyebrow num="11">FINAL CTA</Eyebrow>
             <p className="mt-6 text-xs font-semibold uppercase tracking-[0.15em] text-champagne">
               Start With the Business Problem
             </p>
