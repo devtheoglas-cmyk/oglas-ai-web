@@ -57,10 +57,10 @@ export const serviceSeo: Record<string, SeoEntry> = {
       "Develop AI-powered computer vision solutions for safety, monitoring, object detection, compliance, counting, and operational visibility with Oglas AI.",
   },
   "workflow-automation": {
-    title: "Workflow Automation Solutions | Oglas AI",
-    description:
-      "Automate approvals, document routing, notifications, and repetitive tasks with custom workflow automation solutions that improve efficiency and streamline business operations.",
-  },
+  title: "Workflow Automation Services Dubai | Oglas AI",
+  description:
+    "Oglas AI builds workflow automation solutions for approvals, operations, HR, finance, CRM, and business systems, built in Dubai for global businesses.",
+},
   "marketing-automation": {
     title: "Marketing Automation Solutions | Oglas AI",
     description:
