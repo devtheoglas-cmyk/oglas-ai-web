@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import { BgImage } from "@/components/bg-image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/section-heading";
@@ -46,12 +46,10 @@ export default async function InsightsPage() {
             >
               {post.mainImage?.asset?.url ? (
                 <div className="relative aspect-[16/10] border-b border-black/10 bg-white">
-                  <Image
+                  <BgImage
                     src={post.mainImage.asset.url}
                     alt={post.mainImage.alt ?? ""}
                     fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
-                    className="object-cover"
                   />
                 </div>
               ) : null}

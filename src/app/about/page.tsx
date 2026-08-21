@@ -25,8 +25,8 @@ import {
   Workflow,
   type LucideIcon,
 } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { BgImage } from "@/components/bg-image";
 import { FaqStructuredData } from "@/components/structured-data";
 import { company } from "@/content/site";
 import { staticPageSeo } from "@/content/seo";
@@ -421,13 +421,12 @@ export default function AboutPage() {
               </span>
             </div>
           </div>
-          <Image
+          <BgImage
             src="/images/about/hero.jpg"
             alt="Oglas AI office in Dubai showing custom software and practical AI service areas"
             width={850}
             height={920}
-            priority
-            className="h-auto w-full rounded-2xl border border-black/10 object-cover shadow-xl shadow-black/5"
+            className="w-full rounded-2xl border border-black/10 shadow-xl shadow-black/5"
           />
         </div>
       </section>
@@ -466,12 +465,12 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
-          <Image
+          <BgImage
             src="/images/about/who.jpg"
             alt="Oglas AI team mapping a business workflow before building software"
             width={844}
             height={960}
-            className="h-auto w-full rounded-2xl border border-black/10 object-cover"
+            className="w-full rounded-2xl border border-black/10"
           />
         </div>
       </section>
@@ -494,12 +493,12 @@ export default function AboutPage() {
                 key={item.title}
                 className="flex flex-col overflow-hidden rounded-lg border border-black/10 bg-white"
               >
-                <Image
+                <BgImage
                   src={item.image}
                   alt={`${item.title} interface`}
                   width={344}
                   height={232}
-                  className="h-40 w-full border-b border-black/10 object-cover"
+                  className="h-40 w-full border-b border-black/10"
                 />
                 <div className="flex flex-1 flex-col gap-4 p-6">
                   <div className="flex items-center justify-between">
@@ -537,12 +536,12 @@ export default function AboutPage() {
                 evolve as your needs change.
               </p>
             </div>
-            <Image
+            <BgImage
               src="/images/about/approach.jpg"
               alt="Oglas AI team reviewing workflow designs and dashboards"
               width={710}
               height={440}
-              className="h-auto w-full rounded-2xl border border-black/10 object-cover"
+              className="w-full rounded-2xl border border-black/10"
             />
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -646,12 +645,12 @@ export default function AboutPage() {
             </span>
           </div>
           <div className="overflow-hidden rounded-2xl border border-black/10">
-            <Image
+            <BgImage
               src="/images/about/based.jpg"
               alt="Dubai skyline with the Burj Khalifa representing Oglas AI's UAE base and global reach"
               width={750}
               height={938}
-              className="h-auto w-full object-cover"
+              className="w-full"
             />
             <div className="grid grid-cols-2 gap-4 bg-onyx p-6 sm:grid-cols-4">
               {basedFeatures.map((f) => (
@@ -683,12 +682,12 @@ export default function AboutPage() {
                 forcing teams into generic workflows.
               </p>
             </div>
-            <Image
+            <BgImage
               src="/images/about/based.jpg"
               alt="Dubai business district served by Oglas AI"
               width={750}
               height={420}
-              className="hidden h-44 w-full rounded-2xl border border-black/10 object-cover lg:block"
+              className="hidden h-44 w-full rounded-2xl border border-black/10 lg:block"
             />
           </div>
           <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -744,12 +743,12 @@ export default function AboutPage() {
                 better access to information.
               </p>
             </div>
-            <Image
+            <BgImage
               src="/images/about/experience.jpg"
               alt="HR and payroll dashboard built by Oglas AI"
               width={780}
               height={458}
-              className="h-auto w-full rounded-2xl border border-black/10 object-cover"
+              className="w-full rounded-2xl border border-black/10"
             />
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-3">
@@ -793,12 +792,12 @@ export default function AboutPage() {
                 value today and can evolve with your business.
               </p>
             </div>
-            <Image
+            <BgImage
               src="/images/about/why.jpg"
               alt="Workflow automation dashboard showing processes automated by Oglas AI"
               width={724}
               height={460}
-              className="h-auto w-full rounded-2xl border border-black/10 object-cover"
+              className="w-full rounded-2xl border border-black/10"
             />
           </div>
           <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
@@ -904,12 +903,12 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-          <Image
+          <BgImage
             src="/images/about/cta.jpg"
             alt="Oglas AI workspace in Dubai with a laptop and branded notebook"
             width={700}
             height={818}
-            className="h-auto w-full rounded-2xl border border-black/10 object-cover"
+            className="w-full rounded-2xl border border-black/10"
           />
         </div>
         <p className="mx-auto mt-8 w-full max-w-[1160px] px-4 text-sm text-steel">

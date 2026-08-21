@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { ArrowRight, CheckCircle2, Globe2, Quote } from "lucide-react";
-import Image from "next/image";
+import { BgImage } from "@/components/bg-image";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { InterfaceVisual } from "@/components/interface-visual";
@@ -307,12 +307,10 @@ export default async function Home() {
                 >
                   {post.mainImage?.asset?.url ? (
                     <div className="relative aspect-[16/10] border-b border-black/10 bg-pearl">
-                      <Image
+                      <BgImage
                         src={post.mainImage.asset.url}
                         alt={post.mainImage.alt ?? ""}
                         fill
-                        sizes="(max-width: 1024px) 100vw, 33vw"
-                        className="object-cover"
                       />
                     </div>
                   ) : null}

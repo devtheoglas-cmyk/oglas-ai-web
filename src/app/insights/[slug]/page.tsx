@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import { BgImage } from "@/components/bg-image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { ArticleStructuredData } from "@/components/structured-data";
@@ -90,14 +90,12 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
         <p className="mt-10 text-xl leading-9 text-steel">{post.excerpt}</p>
         {post.mainImage?.asset?.url ? (
           <figure className="mt-10">
-            <Image
+            <BgImage
               src={post.mainImage.asset.url}
               alt={post.mainImage.alt ?? ""}
               width={Math.round(post.mainImage.asset.metadata?.dimensions?.width ?? 1400)}
               height={Math.round(post.mainImage.asset.metadata?.dimensions?.height ?? 840)}
-              sizes="(max-width: 900px) 100vw, 820px"
-              priority
-              className="w-full rounded-lg border border-black/10 object-cover"
+              className="w-full rounded-lg border border-black/10"
             />
             {post.mainImage.caption ? (
               <figcaption className="mt-3 text-sm leading-6 text-steel">

@@ -1,6 +1,6 @@
 import type { PortableTextComponents } from "@portabletext/react";
 import { PortableText } from "@portabletext/react";
-import Image from "next/image";
+import { BgImage } from "@/components/bg-image";
 import type { SanityImage } from "@/sanity/lib/posts";
 
 type PortableTextContentProps = {
@@ -76,13 +76,12 @@ const components: PortableTextComponents = {
 
       return (
         <figure className="my-12">
-          <Image
+          <BgImage
             src={image.asset.url}
             alt={image.alt ?? ""}
             width={width}
             height={height}
-            sizes="(max-width: 900px) 100vw, 820px"
-            className="w-full rounded-lg border border-black/10 object-cover"
+            className="w-full rounded-lg border border-black/10"
           />
           {image.caption ? (
             <figcaption className="mt-3 text-sm leading-6 text-steel">{image.caption}</figcaption>
