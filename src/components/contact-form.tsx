@@ -39,8 +39,13 @@ export function ContactForm() {
       return;
     }
 
+    const serverError = await response
+      .json()
+      .then((body) => (body && typeof body.error === "string" ? body.error : ""))
+      .catch(() => "");
+
     setStatus("error");
-    setMessage("Something went wrong. Please email md@oglasglobal.com directly.");
+    setMessage(serverError || "Something went wrong. Please email md@oglasglobal.com directly.");
   }
 
   return (
