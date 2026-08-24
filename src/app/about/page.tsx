@@ -54,9 +54,9 @@ type IconItem = {
 const whatWeDo: (IconItem & { image: string })[] = [
   {
     index: "01",
-    title: "Custom Business Software",
+    title: "Custom Software Development",
     description:
-      "Applications and internal systems designed around your workflows, users, data, approvals, and operational requirements.",
+      "Custom business software and internal systems designed around your workflows, users, data, approvals, and operational requirements.",
     icon: CircuitBoard,
     image: "/images/about/wwd1.jpg",
   },
@@ -64,7 +64,7 @@ const whatWeDo: (IconItem & { image: string })[] = [
     index: "02",
     title: "Business Automation",
     description:
-      "Automated workflows that reduce repetitive work across payroll, approvals, documents, reporting, operations, and customer processes.",
+      "Workflow automation solutions that reduce repetitive work across payroll, approvals, documents, reporting, operations, and customer processes.",
     icon: Workflow,
     image: "/images/about/wwd2.jpg",
   },
@@ -72,7 +72,7 @@ const whatWeDo: (IconItem & { image: string })[] = [
     index: "03",
     title: "Practical AI",
     description:
-      "AI systems that solve specific business problems — from computer vision and document processing to dashboards, assistants, and decision intelligence.",
+      "Practical AI solutions that solve specific business problems — from computer vision and document processing to dashboards, assistants, and decision intelligence.",
     icon: BrainCircuit,
     image: "/images/about/wwd3.jpg",
   },
@@ -281,12 +281,12 @@ const faqs = [
   {
     question: "What does Oglas AI do?",
     answer:
-      "Oglas AI develops custom business software, ERP and payroll systems, workflow automation, employee self-service portals, computer vision solutions, AI document processing, AI assistants, dashboards, and other integrated business systems.",
+      "Oglas AI develops custom software solutions, ERP and payroll systems, workflow automation, employee self-service portals, computer vision solutions, AI document processing systems, AI assistants, dashboards, and integrated business systems.",
   },
   {
-    question: "Where is Oglas AI based?",
+    question: "Where is Oglas AI based in the UAE?",
     answer:
-      "Oglas AI is based in Dubai, United Arab Emirates. The company serves UAE businesses and is globally available for organizations that need custom software, automation, and practical AI solutions.",
+      "Oglas AI is based in Dubai, United Arab Emirates, and serves UAE businesses while remaining globally available for organizations that need custom software, automation, and practical AI solutions.",
   },
   {
     question: "What industries does Oglas AI work with?",
@@ -297,7 +297,7 @@ const faqs = [
     question:
       "Does Oglas AI build custom software or provide off-the-shelf software?",
     answer:
-      "Oglas AI focuses on custom software and integrated business solutions. Systems are designed around a company's workflows, users, business rules, data, approvals, and existing technology rather than forcing the business into a fixed software structure.",
+      "Oglas AI focuses on custom software development and integrated business solutions. Systems are designed around a company's workflows, users, business rules, data, approvals, and existing technology rather than forcing the business into a fixed software structure.",
   },
   {
     question: "What AI solutions does Oglas AI provide?",
@@ -397,7 +397,7 @@ export default function AboutPage() {
               Technology Built Around How Businesses Actually Work
             </h1>
             <p className="mt-7 max-w-xl text-lg leading-8 text-steel">
-              Oglas AI is a UAE-based custom software and practical AI company
+              Oglas AI is a Dubai-based custom software and practical AI company
               helping businesses replace disconnected tools, repetitive
               processes, and manual work with software designed around the way
               they operate.
@@ -405,7 +405,8 @@ export default function AboutPage() {
             <p className="mt-5 max-w-xl text-base leading-8 text-steel">
               From ERP and payroll systems to workflow automation, computer
               vision, intelligent document processing, and AI-powered business
-              applications, we build technology around real operational needs.
+              applications, we provide custom software development and practical
+              AI solutions built around real operational needs.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
               <Link
@@ -452,9 +453,9 @@ export default function AboutPage() {
               </p>
               <p className="text-base leading-8 text-steel">
                 Our work sits at the intersection of custom software development,
-                business automation, and practical AI — helping organizations
-                improve everyday operations without adding unnecessary
-                technological complexity.
+                business automation, and practical AI — helping UAE and global
+                organizations improve everyday operations without adding
+                unnecessary technological complexity.
               </p>
             </div>
             <div className="mt-8 flex items-start gap-4 rounded-lg border-l-4 border-champagne bg-pearl px-6 py-5">
@@ -619,9 +620,9 @@ export default function AboutPage() {
               UAE-Based. Built for Global Business
             </h2>
             <p className="mt-7 max-w-xl text-base leading-8 text-steel">
-              Oglas AI is based in{" "}
+              Oglas AI is a{" "}
               <strong className="font-semibold text-onyx">
-                Dubai, United Arab Emirates
+                Dubai-based custom software and AI solutions company
               </strong>
               , serving businesses that need custom software, automation, and
               practical AI solutions.
@@ -677,7 +678,7 @@ export default function AboutPage() {
               </h2>
               <p className="mt-6 max-w-2xl text-base leading-8 text-steel">
                 We work with businesses where people, processes, data, and
-                systems need to work together. Our solutions are designed around
+                business software systems need to work together. Our solutions are designed around
                 the operational requirements of each industry, rather than
                 forcing teams into generic workflows.
               </p>
@@ -788,8 +789,8 @@ export default function AboutPage() {
               <p className="mt-7 max-w-xl text-base leading-8 text-steel">
                 We believe technology should support the way your business works,
                 not force your team to work around it. That means understanding
-                your processes first, then building practical systems that create
-                value today and can evolve with your business.
+                your processes first, then building practical software and AI
+                systems that create value today and can evolve with your business.
               </p>
             </div>
             <BgImage
