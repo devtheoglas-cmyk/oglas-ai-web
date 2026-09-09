@@ -245,7 +245,7 @@ export const industries: Industry[] = [
     title: "Manpower & Staffing",
     slug: "manpower-staffing",
     summary:
-      "Payroll, attendance, onboarding, employee documents, ESS, and deployment visibility for distributed teams.",
+      "Custom software for manpower and staffing companies, covering payroll automation, attendance, employee self-service, onboarding, document management, and workforce deployment.",
     icon: UsersRound,
     needs: ["Payroll automation", "ESS portals", "Document expiry alerts"],
   },
@@ -253,7 +253,7 @@ export const industries: Industry[] = [
     title: "Manufacturing & Industrial",
     slug: "manufacturing-industrial",
     summary:
-      "Production visibility, inventory workflows, maintenance tracking, and AI inspection for industrial operations.",
+      "Custom software for manufacturing and industrial operations, including production visibility, inventory workflows, maintenance tracking, reporting, and AI-powered inspection.",
     icon: Factory,
     needs: ["Production dashboards", "Inventory workflows", "Computer vision"],
   },
@@ -261,7 +261,7 @@ export const industries: Industry[] = [
     title: "Security & Surveillance",
     slug: "security-surveillance",
     summary:
-      "Camera intelligence, incident workflows, guard operations, monitoring dashboards, and alert management.",
+      "Custom software and AI solutions for security operations, including camera intelligence, incident workflows, guard operations, monitoring dashboards, and real-time alerts.",
     icon: ShieldCheck,
     needs: ["AI monitoring", "Incident workflows", "Operations dashboards"],
   },
@@ -269,15 +269,15 @@ export const industries: Industry[] = [
     title: "Trading & Distribution",
     slug: "trading-distribution",
     summary:
-      "Order workflows, stock visibility, supplier coordination, delivery tracking, and finance reporting.",
+      "Business software for trading and distribution companies, connecting order management, inventory, supplier coordination, delivery tracking, approvals, and financial reporting.",
     icon: Truck,
-    needs: ["Inventory automation", "Order flows", "Executive reporting"],
+    needs: ["Inventory automation", "Order workflows", "Executive reporting"],
   },
   {
     title: "Healthcare Clinics",
     slug: "healthcare-clinics",
     summary:
-      "Patient workflows, appointment operations, staff scheduling, document processing, and reporting systems.",
+      "Custom software for healthcare clinics, covering appointment workflows, patient operations, staff scheduling, document processing, and reporting.",
     icon: HeartPulse,
     needs: ["Appointment workflows", "Document automation", "Clinic reporting"],
   },
@@ -285,7 +285,7 @@ export const industries: Industry[] = [
     title: "Marketing Agencies",
     slug: "marketing-agencies",
     summary:
-      "Lead routing, campaign reporting, client dashboards, content workflows, and CRM automation.",
+      "Custom software and automation for marketing agencies, including lead routing, CRM workflows, campaign reporting, client dashboards, and content operations.",
     icon: BriefcaseBusiness,
     needs: ["Lead automation", "CRM workflows", "Client dashboards"],
   },
@@ -293,7 +293,7 @@ export const industries: Industry[] = [
     title: "Facility Management",
     slug: "facility-management",
     summary:
-      "Work orders, field staff coordination, asset checks, attendance, and client reporting.",
+      "Custom software for facility management operations, connecting work orders, field staff, asset checks, attendance, service workflows, and client reporting.",
     icon: Building2,
     needs: ["Work orders", "Field staff portals", "Client reports"],
   },
@@ -301,7 +301,7 @@ export const industries: Industry[] = [
     title: "Retail & Multi-branch",
     slug: "retail-multibranch",
     summary:
-      "Branch operations, staff scheduling, stock movement, sales reporting, and workflow standardization.",
+      "Custom software for retail and multi-branch businesses, including branch operations, staff scheduling, inventory movement, sales reporting, and workflow standardization.",
     icon: Store,
     needs: ["Branch dashboards", "Stock flows", "Staff scheduling"],
   },
